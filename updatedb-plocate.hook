@@ -1,0 +1,12 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+Depends = plocate
+
+[Action]
+Description = Updating locate database...
+When = PostTransaction
+Exec = /bin/updatedb

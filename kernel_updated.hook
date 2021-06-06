@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = File
+Target = usr/lib/modules/*
+
+[Action]
+Description = Checking for update of running kernel...
+When = PostTransaction
+Exec = /bin/sh -c '[ -f "/proc/modules" ] && ! [ -d "/usr/lib/modules/$(uname -r)" ] && printf "==> WARNING: %s\n  -> %s\n" "Running kernel has been updated or removed." "A reboot is required."'

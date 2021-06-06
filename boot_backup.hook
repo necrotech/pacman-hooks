@@ -1,0 +1,15 @@
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Operation = Remove
+Type = Package
+Target = linux
+Target = linux-lts
+Target = linux-uksm
+Target = linux-xanmod-cacule-uksm
+Depends = rsync
+
+[Action]
+Description = Backing up /boot...
+When = PreTransaction
+Exec = /usr/bin/rsync -avzq --delete /boot /.bootbackup

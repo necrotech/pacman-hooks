@@ -1,0 +1,17 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = zfs-dkms
+Target = linux
+Target = linux-lts
+Target = linux-uksm
+Target = linux-xanmod-cacule-uksm
+Depends = mkinitcpio
+
+[Action]
+Description = Updating zfs dkms modules in Linux initcpio...
+Exec = /bin/sh -c 'while read -r trg; do case $trg in linux) exit 0; esac; done; /usr/bin/mkinitcpio -P'
+When = PostTransaction
+NeedsTargets

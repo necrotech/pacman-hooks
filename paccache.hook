@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = *
+Depends = pacman-contrib
+
+[Action]
+Description = Cleaning old packages out of pacman cache...
+When = PostTransaction
+Exec = /bin/paccache -rk2

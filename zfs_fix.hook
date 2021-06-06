@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Operation = Remove
+Type = Package
+Target = zfs-dkms
+
+[Action]
+Description = Patching zfs configure script...
+Exec = /bin/sed -i 's/\/bin\/sh/\/bin\/bash/' /usr/src/zfs*/configure
+When = PostTransaction
