@@ -4,9 +4,9 @@ Operation = Install
 Operation = Remove
 Type = Package
 Target = grub
-Depends = zfs-dkms
 
 [Action]
+Depends = zfs-dkms
 Description = Patching /etc/grub.d/10_linux for zfs compatibility (grub bug 59614)...
 When = PostTransaction
 Exec = /bin/sed -i "s|rpool=.*|rpool=\`zdb -l \${GRUB_DEVICE} \| grep -E '[[:blank:]]name' \| cut -d\\\' -f 2\`|"  /etc/grub.d/10_linux

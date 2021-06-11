@@ -3,9 +3,9 @@ Operation = Upgrade
 Operation = Remove
 Type = Package
 Target = *
-Depends = pacman-pstatus
 
 [Action]
+Depends = pacman-pstatus
 Description = Updating pacman-ps data (package removal & upgrade)...
 When = PreTransaction
 Exec = /usr/bin/pacman-ps-record.sh

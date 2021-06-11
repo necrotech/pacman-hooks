@@ -4,9 +4,9 @@ Operation = Upgrade
 Operation = Remove
 Type = Package
 Target = *
-Depends = mlocate
 
 [Action]
+Depends = mlocate
 Description = Updating locate database...
 When = PostTransaction
 Exec = /bin/updatedb
